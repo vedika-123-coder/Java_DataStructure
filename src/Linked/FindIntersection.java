@@ -53,7 +53,13 @@ class LinkedList {
 public class FindIntersection {
 
     public static Node findIntersection(Node list1, Node list2) {
-        while()
+        Node ptr1=list1;
+        Node ptr2=list2;
+        while(ptr1!=ptr2){
+            ptr1=(ptr1!=null)?ptr1.next:list2;
+            ptr2=(ptr2!=null)?ptr2.next:list1;
+        }
+        return ptr1;
     }
 
     public static void main(String[] args) {

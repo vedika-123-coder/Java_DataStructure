@@ -18,7 +18,9 @@ public class DLL {
 
     void InsertAtHead(int val){
         Node1 n=new Node1(val);
-        n.prev=null;
+        if(head!=null){
+            head.prev=n;
+        }
         n.next=head;
         head=n;
     }
@@ -30,15 +32,23 @@ public class DLL {
             temp=temp.next;
         }
     }
-    void InsertAtTail(){
-
+    void InsertAtTail(int val){
+        Node1 n=new Node1(val);
+        if(head==null){
+            head=n;
+            return;
+        }
     }
 }
 class DuplicateClass{
     public static void main(String[] args) {
         DLL dd=new DLL();
+        dd.InsertAtTail(58);
         dd.InsertAtHead(40);
+        dd.InsertAtHead(70);
         dd.InsertAtHead(80);
+        dd.InsertAtHead(90);
+        dd.InsertAtHead(100);
         dd.display();
     }
 }
