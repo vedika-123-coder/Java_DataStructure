@@ -1,4 +1,7 @@
 package Binary;
+
+import java.util.*;
+
 class Node
 {
     int data;
@@ -44,6 +47,22 @@ public class BinaryTree {
         System.out.print(root.data+" ");
     }
 
+    static void BFS(Node root)
+    {
+        Queue<Node> q=new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty())
+        {
+            Node temp=q.poll();
+            System.out.print(temp.data+" ");
+            if(temp.left!=null){
+                q.offer(temp.left);
+            }
+            if(temp.right!=null){
+                q.offer(temp.right);
+            }
+        }
+    }
     public static void main(String[] args) {
         Node root=createNode(1);//Level 0
 
@@ -67,5 +86,13 @@ public class BinaryTree {
         System.out.println();
         System.out.print("Post-order: ");
         postDFS(root);
+        System.out.println();
+        BFS(root);
     }
 }
+//autoboxing
+//int pr=5;
+//Integer wrapperInt=primitiveInt;
+
+//unboxing
+//Integer another=
