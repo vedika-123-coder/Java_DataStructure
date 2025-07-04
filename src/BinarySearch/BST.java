@@ -99,7 +99,18 @@ public class BST {
     void remove(int data){
         root=deleteRec(root,data);
     }
-
+    private boolean isBSTHelper(Node root,long min,long max){
+        if(root==null){
+            return true;
+        }
+        if(root.data<=min||root.data>=max){
+            return false;
+        }
+        return isBSTHelper(root.left,min,root.data)&&isBSTHelper(root.right,root.data,max);
+    }
+    boolean isBST(){
+        return isBSTHelper(root,Long.MIN_VALUE,Long.MAX_VALUE);
+    }
 }
 class DriverCode{
     public static void main(String[] args) {
